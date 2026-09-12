@@ -63,6 +63,38 @@
   --shadow-card: 0 24px 60px -24px oklch(0% 0 0 / 0.8);
 }
 
+.light {
+  --background: oklch(98.5% 0.003 290);
+  --foreground: oklch(12% 0.02 290);
+  --ink: oklch(94% 0.006 290);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(12% 0.02 290);
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(12% 0.02 290);
+  --primary: oklch(52% 0.26 295);
+  --primary-foreground: oklch(99% 0 0);
+  --secondary: oklch(93% 0.01 292);
+  --secondary-foreground: oklch(12% 0.02 290);
+  --muted: oklch(91% 0.012 292);
+  --muted-foreground: oklch(38% 0.025 292);
+  --accent: oklch(88% 0.04 300);
+  --accent-foreground: oklch(12% 0.02 290);
+  --destructive: oklch(55% 0.22 25);
+  --destructive-foreground: oklch(99% 0 0);
+  --border: oklch(0% 0 0 / 0.14);
+  --input: oklch(0% 0 0 / 0.12);
+  --ring: oklch(52% 0.26 295);
+  --violet: oklch(52% 0.26 296);
+  --violet-deep: oklch(88% 0.04 296);
+  --violet-glow: oklch(58% 0.22 305);
+  --gradient-aurora: radial-gradient(120% 90% at 20% 0%, oklch(80% 0.12 296 / 0.35) 0%, transparent 65%),
+    radial-gradient(90% 80% at 90% 20%, oklch(82% 0.1 320 / 0.3) 0%, transparent 60%),
+    radial-gradient(120% 100% at 50% 110%, oklch(85% 0.08 305 / 0.25) 0%, transparent 65%);
+  --gradient-sheen: linear-gradient(135deg, oklch(0% 0 0 / 0.05) 0%, oklch(0% 0 0 / 0.01) 40%, transparent 70%);
+  --shadow-float: 0 25px 60px -20px oklch(50% 0.15 296 / 0.2);
+  --shadow-card: 0 16px 40px -20px oklch(0% 0 0 / 0.1);
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -94,6 +126,45 @@ body {
   backdrop-filter: blur(18px);
   background: oklch(100% 0 0 / 0.05);
   border: 1px solid oklch(100% 0 0 / 0.1);
+}
+
+.light .glass {
+  background: oklch(100% 0 0 / 0.78);
+  border: 1px solid oklch(0% 0 0 / 0.12);
+  box-shadow: 0 8px 30px -6px oklch(0% 0 0 / 0.08);
+}
+
+.light .grain::after {
+  background-image: radial-gradient(oklch(0% 0 0 / 0.04) 1px, transparent 1px);
+  opacity: 0.35;
+}
+
+.light .border-white\/10 {
+  border-color: oklch(0% 0 0 / 0.12);
+}
+
+.light .border-white\/15 {
+  border-color: oklch(0% 0 0 / 0.16);
+}
+
+.light .border-white\/5 {
+  border-color: oklch(0% 0 0 / 0.08);
+}
+
+.light .bg-white\/10 {
+  background-color: oklch(0% 0 0 / 0.06);
+}
+
+.light .bg-white\/5 {
+  background-color: oklch(0% 0 0 / 0.04);
+}
+
+.light .hover\:bg-white\/10:hover {
+  background-color: oklch(0% 0 0 / 0.08);
+}
+
+.light .hover\:bg-white\/5:hover {
+  background-color: oklch(0% 0 0 / 0.05);
 }
 
 .text-huge {

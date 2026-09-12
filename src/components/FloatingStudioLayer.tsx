@@ -28,7 +28,7 @@ export function FloatingStudioLayer() {
               top: card.y,
               width: card.w,
               height: card.h,
-              background: `radial-gradient(120% 90% at 40% 20%, ${card.hue}, oklch(0.08 0.01 290))`,
+              background: `radial-gradient(120% 90% at 40% 20%, ${card.hue}, var(--background))`,
               boxShadow: 'var(--shadow-card)',
             }}
             animate={{

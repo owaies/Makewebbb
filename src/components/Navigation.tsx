@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import { siteConfig, navItems } from '../data';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,6 +59,8 @@ export function Navigation() {
           })}
         </div>
 
+        <ThemeToggle className="ml-1" />
+
         <Link
           to="/contact"
           className="hidden rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-transform hover:scale-[1.03] md:inline-block"
@@ -81,17 +84,20 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="pointer-events-auto fixed inset-0 z-50 aurora bg-ink px-6 pt-24"
+            className="pointer-events-auto fixed inset-0 z-50 aurora bg-background px-6 pt-24"
           >
-            <button
-              aria-label="Close menu"
-              onClick={() => setIsOpen(false)}
-              className="absolute top-7 right-6 rounded-full border border-border p-2 text-foreground transition-colors hover:bg-white/5"
-            >
-              <X className="h-4 w-4" />
-            </button>
+            <div className="absolute top-7 right-6 flex items-center gap-2">
+              <ThemeToggle showLabel={true} className="px-3" />
+              <button
+                aria-label="Close menu"
+                onClick={() => setIsOpen(false)}
+                className="rounded-full border border-border p-2 text-foreground transition-colors hover:bg-white/5"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
 
-            <div className="flex flex-col gap-2 max-w-md mx-auto">
+            <div className="flex flex-col gap-2 max-w-md mx-auto mt-4">
               {navItems.map((item, idx) => (
                 <motion.div
                   key={item.to}
