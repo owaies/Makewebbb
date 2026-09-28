@@ -13,9 +13,13 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('makewebb_theme') as Theme | null;
-      if (stored === 'light' || stored === 'dark') {
-        return stored;
+      try {
+        const stored = localStorage.getItem('makewebb_theme') as Theme | null;
+        if (stored === 'light' || stored === 'dark') {
+          return stored;
+        }
+      } catch {
+        // Fall back to the default theme when browser storage is unavailable.
       }
     }
     return 'dark'; // Default dark mode as per MakeWebb identity
