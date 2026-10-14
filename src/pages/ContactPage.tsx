@@ -13,10 +13,14 @@ export function ContactPage() {
   const [formMessage, setFormMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(siteConfig.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(siteConfig.email);
+      setCopiedEmail(true);
+      window.setTimeout(() => setCopiedEmail(false), 2000);
+    } catch {
+      setCopiedEmail(false);
+    }
   };
 
   const handleFormSubmit = (e: FormEvent) => {
