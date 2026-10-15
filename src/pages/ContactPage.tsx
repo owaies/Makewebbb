@@ -223,6 +223,7 @@ export function ContactPage() {
                         key={type}
                         type="button"
                         onClick={() => setFormProject(type)}
+                        aria-pressed={formProject === type}
                         className={`rounded-xl px-3 py-2.5 text-xs font-medium border text-center transition-all ${
                           formProject === type
                             ? 'bg-foreground text-background border-foreground shadow-sm'
@@ -265,9 +266,9 @@ export function ContactPage() {
                 </div>
 
                 {submitted && (
-                  <div className="md:col-span-2 rounded-xl bg-emerald-950/40 border border-emerald-500/40 p-4 text-emerald-300 text-sm flex items-center gap-2">
+                  <div role="status" aria-live="polite" className="md:col-span-2 rounded-xl bg-emerald-950/40 border border-emerald-500/40 p-4 text-emerald-300 text-sm flex items-center gap-2">
                     <Check className="h-4 w-4 shrink-0" />
-                    <span>Email client opened! We look forward to connecting with you shortly.</span>
+                    <span>Your email app should open with a draft. Send it there to complete your inquiry.</span>
                   </div>
                 )}
               </form>
