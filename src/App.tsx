@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
@@ -9,6 +9,19 @@ import { ServicesPage } from './pages/ServicesPage';
 import { WorkPage } from './pages/WorkPage';
 import { TeamPage } from './pages/TeamPage';
 import { ContactPage } from './pages/ContactPage';
+
+function NotFoundPage() {
+  return (
+    <main className="mx-auto flex min-h-[60vh] w-full max-w-5xl flex-col items-center justify-center px-5 py-24 text-center" aria-labelledby="not-found-title">
+      <p className="font-mono text-sm uppercase tracking-widest text-primary">404 · Page not found</p>
+      <h1 id="not-found-title" className="mt-4 text-4xl font-semibold tracking-tight">This page doesn’t exist.</h1>
+      <p className="mt-4 max-w-lg text-muted-foreground">The address may be incorrect, or the page may have moved.</p>
+      <Link to="/" className="mt-8 inline-flex rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-80">
+        Return home
+      </Link>
+    </main>
+  );
+}
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -21,7 +34,7 @@ function AnimatedRoutes() {
         <Route path="/work" element={<WorkPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </PageTransition>
   );
