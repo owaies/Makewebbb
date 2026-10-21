@@ -46,8 +46,14 @@ export default function App() {
       <BrowserRouter>
         <CustomCursor />
         <div className="relative flex min-h-screen flex-col bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary transition-colors duration-300">
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10000] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-foreground focus:ring-2 focus:ring-primary"
+          >
+            Skip to content
+          </a>
           <Navigation />
-          <div className="flex-1 flex flex-col">
+          <div id="main-content" tabIndex={-1} className="flex-1 flex flex-col">
             <AnimatedRoutes />
           </div>
           <Footer />
