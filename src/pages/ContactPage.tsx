@@ -190,6 +190,8 @@ export function ContactPage() {
                   <input
                     id="name"
                     type="text"
+                    autoComplete="name"
+                    maxLength={120}
                     required
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
@@ -205,6 +207,8 @@ export function ContactPage() {
                   <input
                     id="email"
                     type="email"
+                    autoComplete="email"
+                    maxLength={254}
                     required
                     value={formEmail}
                     onChange={(e) => setFormEmail(e.target.value)}
@@ -242,6 +246,7 @@ export function ContactPage() {
                   </label>
                   <textarea
                     id="message"
+                    maxLength={3000}
                     required
                     rows={4}
                     value={formMessage}
