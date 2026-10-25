@@ -218,10 +218,10 @@ export function ContactPage() {
                 </div>
 
                 <div className="md:col-span-2">
-                  <label htmlFor="project-type" className="block text-xs font-medium text-foreground/80 mb-2">
+                  <p id="project-type-label" className="block text-xs font-medium text-foreground/80 mb-2">
                     Project Type
-                  </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  </p>
+                  <div id="project-type" role="group" aria-labelledby="project-type-label" className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {['Websites', 'Web Applications', 'AI Integration', 'Workflow Automation'].map((type) => (
                       <button
                         key={type}
