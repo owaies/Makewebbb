@@ -8,6 +8,6 @@ Check the main pages at desktop and mobile widths after changing layouts or navi
 - Visible focus states are not hidden by animated elements.
 - Loading, error, and submission status messages remain readable.
 - Theme changes preserve text contrast and do not depend on browser storage being available.
-- Reduced-motion preferences avoid unnecessary page-transition movement.
+- Reduced-motion preferences avoid unnecessary page-transition movement and disable the animated custom cursor while leaving the native pointer available.
 
 Capture viewport size and browser details when reporting a visual regression.
