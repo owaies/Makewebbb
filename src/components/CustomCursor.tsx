@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'motion/react';
+import { motion, useMotionValue, useReducedMotion, useSpring } from 'motion/react';
 import { useTheme } from '../context/ThemeContext';
 
 export function CustomCursor() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
+  const shouldReduceMotion = useReducedMotion();
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
@@ -96,7 +97,7 @@ export function CustomCursor() {
     };
   }, [isVisible, mouseX, mouseY, magneticX, magneticY]);
 
-  if (!isPointerFine) {
+  if (!isPointerFine || shouldReduceMotion) {
     return null;
   }
 
