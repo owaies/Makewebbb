@@ -12,4 +12,4 @@ Check navigation, cards, text, buttons, forms, and footer in both themes.
 Verify browser-native controls and form surfaces remain legible after the theme changes.
 
 ## Accessibility
-Keyboard focus must remain visible in both themes.
+Keyboard focus must remain visible in both themes. With the operating system set to reduced motion, switch themes and confirm the control remains usable without the hover/tap scale or icon-rotation animation.
