@@ -1,5 +1,5 @@
 import { ReactNode, Key } from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 
 interface RevealProps {
   children: ReactNode;
@@ -10,12 +10,14 @@ interface RevealProps {
 }
 
 export function Reveal({ children, delay = 0, y = 28, className = '' }: RevealProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y, filter: 'blur(8px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      initial={shouldReduceMotion ? false : { opacity: 0, y, filter: 'blur(8px)' }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.85, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.85, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
     >
       {children}
