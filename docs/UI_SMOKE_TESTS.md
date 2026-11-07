@@ -10,4 +10,7 @@ Check the main pages at desktop and mobile widths after changing layouts or navi
 - Theme changes preserve text contrast and do not depend on browser storage being available.
 - Reduced-motion preferences avoid unnecessary page-transition movement and disable the animated custom cursor while leaving the native pointer available.
 
+- Switch browser/device emulation from coarse/touch to fine/mouse pointer while the page remains open; confirm the custom cursor attaches and detaches as pointer capability changes.
+- Toggle the operating-system reduced-motion preference while the page remains open; confirm cursor tracking stops when reduction is enabled and resumes only when it is disabled and a fine pointer is available.
+
 Capture viewport size and browser details when reporting a visual regression.
