@@ -38,7 +38,7 @@ export function CustomCursor() {
     };
     mediaQuery.addEventListener('change', handleMediaChange);
 
-    if (!mediaQuery.matches) {
+    if (!mediaQuery.matches || shouldReduceMotion) {
       return () => mediaQuery.removeEventListener('change', handleMediaChange);
     }
 
@@ -47,7 +47,7 @@ export function CustomCursor() {
       mouseX.set(clientX);
       mouseY.set(clientY);
 
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
 
       // Check if hovering an interactive element (buttons, links, form controls, clickable elements)
       const target = e.target as HTMLElement | null;
@@ -95,7 +95,7 @@ export function CustomCursor() {
       document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
       document.documentElement.removeEventListener('mouseenter', handleMouseEnter);
     };
-  }, [isVisible, mouseX, mouseY, magneticX, magneticY]);
+  }, [isPointerFine, shouldReduceMotion, mouseX, mouseY, magneticX, magneticY]);
 
   if (!isPointerFine || shouldReduceMotion) {
     return null;
