@@ -12,5 +12,6 @@ Check the main pages at desktop and mobile widths after changing layouts or navi
 
 - Switch browser/device emulation from coarse/touch to fine/mouse pointer while the page remains open; confirm the custom cursor attaches and detaches as pointer capability changes.
 - Toggle the operating-system reduced-motion preference while the page remains open; confirm cursor tracking stops when reduction is enabled and resumes only when it is disabled and a fine pointer is available.
+- Press and hold the primary mouse button, then move the pointer outside the document or switch focus to another window; confirm the custom cursor does not remain in its pressed or hovered state when focus returns.
 
 Capture viewport size and browser details when reporting a visual regression.
